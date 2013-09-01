@@ -76,4 +76,28 @@ describe("World", function() {
       });
     });
   });
+
+  describe("#toggleCell", function() {
+    describe("when cell is alive", function() {
+      it("kills the cell", function() {
+        world.reviveCell(1, 2);
+        expect(world.isCellAlive(1, 2)).toBeTruthy();
+
+        world.toggleCell(1, 2);
+
+        expect(world.isCellAlive(1, 2)).toBeFalsy();
+      });
+    });
+
+    describe("when cell is not alive", function() {
+      it("revives the cell", function() {
+        world.killCell(1, 2);
+        expect(world.isCellAlive(1, 2)).toBeFalsy();
+
+        world.toggleCell(1, 2);
+
+        expect(world.isCellAlive(1, 2)).toBeTruthy();
+      });
+    });
+  });
 });

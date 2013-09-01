@@ -27,3 +27,11 @@ World.prototype.killCell = function(x, y) {
     return cell[0] === x && cell[1] === y;
   });
 };
+
+World.prototype.toggleCell = function(x, y) {
+  if (this.isCellAlive(x, y)) {
+    this.killCell(x, y);
+  } else {
+    this.reviveCell(x, y);
+  }
+};
