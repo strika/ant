@@ -116,7 +116,7 @@ describe("Ant", function() {
     describe("when direction is up", function() {
       it("moves ant up", function() {
         ant.moveForward();
-        expect(ant.getLocation()).toEqual([x - 1, y]);
+        expect(ant.getLocation()).toEqual([x, y - 1]);
       });
     });
 
@@ -128,7 +128,7 @@ describe("Ant", function() {
 
       it("moves ant left", function() {
         ant.moveForward();
-        expect(ant.getLocation()).toEqual([x, y - 1]);
+        expect(ant.getLocation()).toEqual([x - 1, y]);
       });
     });
 
@@ -141,7 +141,7 @@ describe("Ant", function() {
 
       it("moves ant down", function() {
         ant.moveForward();
-        expect(ant.getLocation()).toEqual([x + 1, y]);
+        expect(ant.getLocation()).toEqual([x, y + 1]);
       });
     });
 
@@ -153,7 +153,7 @@ describe("Ant", function() {
 
       it("moves ant right", function() {
         ant.moveForward();
-        expect(ant.getLocation()).toEqual([x, y + 1]);
+        expect(ant.getLocation()).toEqual([x + 1, y]);
       });
     });
   });
