@@ -1,10 +1,11 @@
 describe("Ant", function() {
   var x = 1;
   var y = 2;
-  var ant;
+  var ant, world;
 
   beforeEach(function() {
-    ant = new Ant(x, y);
+    world = new World();
+    ant = new Ant(world, x, y);
   });
 
   describe("#getDirection", function() {

@@ -1,4 +1,5 @@
-function Ant(x, y) {
+function Ant(world, x, y) {
+  this.world = world;
   this.x = x;
   this.y = y;
   this.direction = "up";
