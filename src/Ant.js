@@ -39,3 +39,17 @@ Ant.prototype.moveForward = function() {
     this.x = this.x - 1;
   }
 };
+
+Ant.prototype.turn = function() {
+  if (this.world.isCellDead(this.x, this.y)) {
+    this.turnRight();
+  } else {
+    this.turnLeft();
+  }
+};
+
+Ant.prototype.move = function() {
+  this.turn();
+  this.world.toggleCell(this.x, this.y);
+  this.moveForward();
+};

@@ -157,4 +157,44 @@ describe("Ant", function() {
       });
     });
   });
+
+  describe("#move", function() {
+    describe("when square is white", function() {
+      beforeEach(function() {
+        world.killCell(x, y);
+        ant.move();
+      });
+
+      it("turns ant to the right", function() {
+        expect(ant.getDirection()).toEqual("right");
+      });
+
+      it("flips the square", function() {
+        expect(world.isCellAlive(x, y)).toBeTruthy();
+      });
+
+      it("moves the ant forward", function() {
+        expect(ant.getLocation()).toEqual([x + 1, y]);
+      });
+    });
+
+    describe("when square is black", function() {
+      beforeEach(function() {
+        world.reviveCell(x, y);
+        ant.move();
+      });
+
+      it("turns ant to the left", function() {
+        expect(ant.getDirection()).toEqual("left");
+      });
+
+      it("flips the square", function() {
+        expect(world.isCellDead(x, y)).toBeTruthy();
+      });
+
+      it("moves the ant forward", function() {
+        expect(ant.getLocation()).toEqual([x - 1, y]);
+      });
+    });
+  });
 });
