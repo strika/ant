@@ -4,11 +4,25 @@
     <meta charset="utf-8">
     <title>Langton's Ant</title>
     <link rel="stylesheet" href="style.css">
-    <script src="lib/underscore-min.js"></script>
-    <script src="lib/raphael-min.js"></script>
-    <script src="lib/Ant.js"></script>
   </head>
   <body>
-    <!-- page content -->
+    <div id="paper">
+    </div>
   </body>
+
+  <script type="text/javascript" src="lib/underscore-min.js"></script>
+  <script type="text/javascript" src="lib/raphael-min.js"></script>
+  <script type="text/javascript" src="src/World.js"></script>
+  <script type="text/javascript" src="src/WorldView.js"></script>
+  <script type="text/javascript" src="src/Ant.js"></script>
+  <script>
+    var paper = Raphael(document.getElementById("paper"), 500, 500);
+    var world = new World();
+    var worldView = new WorldView(world, paper);
+
+    world.reviveCell(0, 0);
+    world.reviveCell(1, 1);
+    world.reviveCell(2, 2);
+    worldView.paint();
+  </script>
 </html>
