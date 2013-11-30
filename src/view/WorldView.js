@@ -6,19 +6,6 @@ function WorldView(world, paper) {
   this.world.observe(this);
 }
 
-WorldView.prototype.paint = function() {
-  var cellSize = this.cellSize;
-  var paper = this.paper;
-
-  _.each(this.world.getLiveCells(), function(cell) {
-    var x = cell[0] * cellSize,
-        y = cell[1] * cellSize,
-        cellView = paper.rect(x, y, cellSize, cellSize);
-
-    cellView.attr("fill", "#222");
-  });
-};
-
 WorldView.prototype.paintLiveCell = function(cell) {
  this.paintCell(cell, "#222");
 };

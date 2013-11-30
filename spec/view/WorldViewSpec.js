@@ -16,25 +16,17 @@ describe("WorldView", function() {
     worldView = new WorldView(world, paper);
   });
 
-  describe("#paint", function() {
-    beforeEach(function() {
-      spyOn(paper, "rect").andCallThrough();
-    });
-
-    it("calls rect for each live cell", function() {
-      worldView.paint();
-      expect(paper.rect.calls.length).toEqual(2);
-    });
-  });
-
   describe("#paintLiveCell", function() {
     beforeEach(function() {
       spyOn(paper, "rect").andCallThrough();
     });
 
     it("paints the cell", function() {
-      worldView.paintLiveCell([2, 2]);
-      expect(paper.rect).toHaveBeenCalledWith(10, 10, 5, 5);
+      var x = 2,
+          y = 2,
+          size = worldView.cellSize;
+      worldView.paintLiveCell([x, y]);
+      expect(paper.rect).toHaveBeenCalledWith(x * size, y * size, size, size);
     });
   });
 
@@ -44,8 +36,11 @@ describe("WorldView", function() {
     });
 
     it("paints the cell", function() {
-      worldView.paintDeadCell([2, 2]);
-      expect(paper.rect).toHaveBeenCalledWith(10, 10, 5, 5);
+      var x = 2,
+          y = 2,
+          size = worldView.cellSize;
+      worldView.paintDeadCell([x, y]);
+      expect(paper.rect).toHaveBeenCalledWith(x * size, y * size, size, size);
     });
   });
 });
