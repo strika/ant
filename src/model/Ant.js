@@ -1,8 +1,14 @@
-function Ant(world, x, y) {
+function Ant(world, x, y, direction) {
   this.world = world;
   this.x = x;
   this.y = y;
-  this.direction = "up";
+
+  if (direction !== undefined) {
+    this.direction = "up";
+  } else {
+    this.direction = direction;
+  }
+
   this.directions = ["up", "right", "down", "left", "up", "right", "down", "left"];
 }
 

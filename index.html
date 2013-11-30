@@ -13,13 +13,16 @@
   <script type="text/javascript" src="lib/underscore-min.js"></script>
   <script type="text/javascript" src="lib/raphael-min.js"></script>
   <script type="text/javascript" src="src/model/Ant.js"></script>
+  <script type="text/javascript" src="src/model/AntFactory.js"></script>
   <script type="text/javascript" src="src/model/World.js"></script>
   <script type="text/javascript" src="src/view/WorldView.js"></script>
   <script>
-    var paper = Raphael(document.getElementById("paper"), 500, 500);
-    var world = new World();
-    var worldView = new WorldView(world, paper);
-    var ant = new Ant(world, 10, 10);
+    var paper = Raphael(document.getElementById("paper"), 800, 800),
+        world = new World(),
+        worldView = new WorldView(world, paper);
+        antFactory = new AntFactory(world);
+
+    var ant = antFactory.buildRandomAnt();
 
     window.setInterval(function() { ant.move(); }, 256);
   </script>
