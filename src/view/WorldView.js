@@ -20,6 +20,7 @@ WorldView.prototype.paintCell = function(cell, color) {
         cellView = this.paper.rect(x, y, this.cellSize, this.cellSize);
 
     cellView.attr("fill", color);
+    cellView.attr("stroke-width", 0);
 };
 
 WorldView.prototype.notify = function(event) {
